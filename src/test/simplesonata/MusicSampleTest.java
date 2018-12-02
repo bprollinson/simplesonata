@@ -17,7 +17,7 @@ public class MusicSampleTest
             1,
             2
         });
-System.out.println("Right before");
+
         assertEquals(otherSample, sample);
     }
 
