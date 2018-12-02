@@ -1,7 +1,10 @@
 package simplesonata;
 
+import org.junit.Test;
+
 public class NoteSequenceSamplerTest
 {
+    @Test
     public void testSampleReturnsSingleStartingPoint()
     {
         NoteSequenceSampler sampler = new NoteSequenceSampler();
