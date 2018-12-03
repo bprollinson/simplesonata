@@ -70,7 +70,21 @@ public class NoteSequenceSamplerTest
     @Test
     public void testSampleReturnsSampleFromFractionalNoteFrequency()
     {
-        throw new RuntimeException();
+        NoteSequenceSampler sampler = new NoteSequenceSampler();
+        NoteSequence sequence = new NoteSequence(new Note(0.5, 1));
+
+        MusicSample expectedSample = new MusicSample(new byte[] {
+            0,
+            90,
+            127,
+            90,
+            0,
+            -90,
+            -127,
+            -90
+        });
+
+        assertEquals(expectedSample, sampler.sample(sequence, 4));
     }
 
     @Test
