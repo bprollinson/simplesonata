@@ -9,7 +9,7 @@ public class NoteSequenceSamplerTest
     public void testSampleReturnsMinimalSample()
     {
         NoteSequenceSampler sampler = new NoteSequenceSampler();
-        NoteSequence sequence = new NoteSequence(new Note(440, 1));
+        NoteSequence sequence = new NoteSequence(new Note(1, 1));
 
         MusicSample expectedSample = new MusicSample(new byte[] {
             0,
@@ -17,5 +17,25 @@ public class NoteSequenceSamplerTest
         });
 
         assertEquals(expectedSample, sampler.sample(sequence, 1));
+    }
+
+    @Test
+    public void testSampleReturnsSampleWithIntermediatePoints()
+    {
+        NoteSequenceSampler sampler = new NoteSequenceSampler();
+        NoteSequence sequence = new NoteSequence(new Note(1, 1));
+
+        MusicSample expectedSample = new MusicSample(new byte[] {
+            0,
+            127,
+            0,
+            -127,
+            0,
+            127,
+            0,
+            -127
+        });
+
+        assertEquals(expectedSample, sampler.sample(sequence, 4));
     }
 }
