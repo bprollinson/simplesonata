@@ -66,4 +66,22 @@ public class NoteSequenceSamplerTest
 
         assertEquals(expectedSample, sampler.sample(sequence, 8));
     }
+
+    @Test
+    public void testSampleReturnsSampleFromFractionalNoteFrequency()
+    {
+        throw new RuntimeException();
+    }
+
+    @Test
+    public void testSampleReturnsSynchopatedSample()
+    {
+        throw new RuntimeException();
+    }
+
+    @Test
+    public void testSampleReturnsMultiNoteSample()
+    {
+        throw new RuntimeException();
+    }
 }
