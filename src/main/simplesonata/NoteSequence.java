@@ -12,4 +12,9 @@ public class NoteSequence
     {
         this.notes = new ArrayList<Note>(Arrays.asList(notes));
     }
+
+    public Note getNote(int index)
+    {
+        return this.notes.get(index);
+    }
 }

@@ -2,12 +2,17 @@ package simplesonata;
 
 public class Note
 {
-    private int frequencyHZ;
+    private double frequencyHZ;
     private int timeS;
 
-    public Note(int frequencyHZ, int timeS)
+    public Note(double frequencyHZ, int timeS)
     {
         this.frequencyHZ = frequencyHZ;
         this.timeS = timeS;
+    }
+
+    public double getFrequencyHZ()
+    {
+        return this.frequencyHZ;
     }
 }

@@ -23,7 +23,7 @@ public class NoteSequenceSamplerTest
     public void testSampleReturnsSampleWithIntermediatePoints()
     {
         NoteSequenceSampler sampler = new NoteSequenceSampler();
-        NoteSequence sequence = new NoteSequence(new Note(1, 1));
+        NoteSequence sequence = new NoteSequence(new Note(0.5, 1));
 
         MusicSample expectedSample = new MusicSample(new byte[] {
             0,
