@@ -120,6 +120,32 @@ public class NoteSequenceSamplerTest
     @Test
     public void testSampleReturnsMultiNoteSample()
     {
-        throw new RuntimeException();
+        NoteSequenceSampler sampler = new NoteSequenceSampler();
+        NoteSequence sequence = new NoteSequence(new Note(1, 1), new Note(0.5, 1));
+
+        MusicSample expectedSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                0,
+                127,
+                0,
+                -127,
+                0,
+                127,
+                0,
+                -127
+            }),
+            new MusicSampleNote(new byte[] {
+                0,
+                90,
+                127,
+                90,
+                0,
+                -90,
+                -127,
+                -90
+            })
+        });
+
+        assertEquals(expectedSample, sampler.sample(sequence, 4));
     }
 }
