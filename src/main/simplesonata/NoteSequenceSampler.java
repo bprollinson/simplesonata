@@ -6,15 +6,16 @@ public class NoteSequenceSampler
 
     public MusicSample sample(NoteSequence sequence, int samplePointsPerSecond)
     {
-        Note note = sequence.getNote(0);
-        byte[] samplePoints = this.calculateWaveSampleValues(note, samplePointsPerSecond);
+        Note[] notes = sequence.getNotes();
+        MusicSampleNote[] sampleNotes = new MusicSampleNote[notes.length];
 
-        MusicSampleNote sampleNote = new MusicSampleNote(samplePoints);
-        MusicSample sample = new MusicSample(new MusicSampleNote[] {
-            sampleNote
-        });
+        for (int i = 0; i < notes.length; i++)
+        {
+            byte[] samplePoints = this.calculateWaveSampleValues(notes[i], samplePointsPerSecond);
+            sampleNotes[i] = new MusicSampleNote(samplePoints);
+        }
 
-        return sample;
+        return new MusicSample(sampleNotes);
     }
 
     private byte[] calculateWaveSampleValues(Note note, int samplePointsPerSecond)

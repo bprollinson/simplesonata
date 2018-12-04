@@ -6,15 +6,15 @@ import java.util.List;
 
 public class NoteSequence
 {
-    private List<Note> notes;
+    private Note[] notes;
 
     public NoteSequence(Note... notes)
     {
-        this.notes = new ArrayList<Note>(Arrays.asList(notes));
+        this.notes = notes;
     }
 
-    public Note getNote(int index)
+    public Note[] getNotes()
     {
-        return this.notes.get(index);
+        return this.notes;
     }
 }
