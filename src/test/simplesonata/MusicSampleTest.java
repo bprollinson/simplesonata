@@ -22,6 +22,12 @@ public class MusicSampleTest
     }
 
     @Test
+    public void testEqualsReturnsTrueForMultiNoteSample()
+    {
+        throw new RuntimeException();
+    }
+
+    @Test
     public void testEqualsReturnsFalseWhenSamplePointsAreNotTheSame()
     {
         MusicSample sample = new MusicSample(new byte[] {
@@ -34,6 +40,12 @@ public class MusicSampleTest
         });
 
         assertNotEquals(otherSample, sample);
+    }
+
+    @Test
+    public void testEqualsReturnsFalseWhenNumberOfNotesIsNotTheSame()
+    {
+        throw new RuntimeException();
     }
 
     @Test
