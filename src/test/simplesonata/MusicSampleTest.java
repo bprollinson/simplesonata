@@ -9,13 +9,17 @@ public class MusicSampleTest
     @Test
     public void testEqualsReturnsTrueWhenSamplePointsAreTheSame()
     {
-        MusicSample sample = new MusicSample(new byte[] {
-            1,
-            2
+        MusicSample sample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                2
+            })
         });
-        MusicSample otherSample = new MusicSample(new byte[] {
-            1,
-            2
+        MusicSample otherSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                2
+            })
         });
 
         assertEquals(otherSample, sample);
@@ -30,13 +34,17 @@ public class MusicSampleTest
     @Test
     public void testEqualsReturnsFalseWhenSamplePointsAreDifferent()
     {
-        MusicSample sample = new MusicSample(new byte[] {
-            1,
-            2
+        MusicSample sample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                2
+            })
         });
-        MusicSample otherSample = new MusicSample(new byte[] {
-            1,
-            3
+        MusicSample otherSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                3
+            })
         });
 
         assertNotEquals(otherSample, sample);
@@ -51,9 +59,11 @@ public class MusicSampleTest
     @Test
     public void testEqualsReturnsFalseForObjectWithDifferentClass()
     {
-        MusicSample sample = new MusicSample(new byte[] {
-            1,
-            2
+        MusicSample sample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                2
+            })
         });
 
         assertNotEquals(new Object(), sample);

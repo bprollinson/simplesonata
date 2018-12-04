@@ -4,16 +4,16 @@ import java.util.Arrays;
 
 public class MusicSample
 {
-    private byte[] samplePoints;
+    private MusicSampleNote[] sampleNotes;
 
-    public MusicSample(byte[] samplePoints)
+    public MusicSample(MusicSampleNote[] sampleNotes)
     {
-        this.samplePoints = samplePoints;
+        this.sampleNotes = sampleNotes;
     }
 
-    public byte[] getSamplePoints()
+    public MusicSampleNote[] getSampleNotes()
     {
-        return this.samplePoints;
+        return this.sampleNotes;
     }
 
     public boolean equals(Object other)
@@ -23,6 +23,6 @@ public class MusicSample
             return false;
         }
 
-        return Arrays.equals(this.samplePoints, ((MusicSample)other).getSamplePoints());
+        return Arrays.equals(this.sampleNotes, ((MusicSample)other).getSampleNotes());
     }
 }
