@@ -28,7 +28,28 @@ public class MusicSampleTest
     @Test
     public void testEqualsReturnsTrueForMultiNoteSample()
     {
-        throw new RuntimeException();
+        MusicSample sample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                2
+            }),
+            new MusicSampleNote(new byte[] {
+                3,
+                4
+            })
+        });
+        MusicSample otherSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                2
+            }),
+            new MusicSampleNote(new byte[] {
+                3,
+                4
+            })
+        });
+
+        assertEquals(otherSample, sample);
     }
 
     @Test
@@ -51,9 +72,26 @@ public class MusicSampleTest
     }
 
     @Test
-    public void testEqualsReturnsFalseWhenNumberOfNotesIsNotTheSame()
+    public void testEqualsReturnsFalseWhenNumberOfNotesIsDifferent()
     {
-        throw new RuntimeException();
+        MusicSample sample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                2
+            }),
+            new MusicSampleNote(new byte[] {
+                3,
+                4
+            })
+        });
+        MusicSample otherSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                2
+            })
+        });
+
+        assertNotEquals(otherSample, sample);
     }
 
     @Test
