@@ -33,6 +33,17 @@ public class MusicSampleNoteTest
             3
         });
 
-        assertEquals(otherSampleNote, sampleNote);
+        assertNotEquals(otherSampleNote, sampleNote);
+    }
+
+    @Test
+    public void testEqualsReturnsFalseForObjectWithDifferentClass()
+    {
+        MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
+            1,
+            2
+        });
+
+        assertNotEquals(new Object(), sampleNote);
     }
 }
