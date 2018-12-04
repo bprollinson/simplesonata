@@ -90,7 +90,21 @@ public class NoteSequenceSamplerTest
     @Test
     public void testSampleReturnsSynchopatedSample()
     {
-        throw new RuntimeException();
+        NoteSequenceSampler sampler = new NoteSequenceSampler();
+        NoteSequence sequence = new NoteSequence(new Note(0.4, 1));
+
+        MusicSample expectedSample = new MusicSample(new byte[] {
+            0,
+            75,
+            121,
+            121,
+            75,
+            0,
+            -75,
+            -121
+        });
+
+        assertEquals(expectedSample, sampler.sample(sequence, 4));
     }
 
     @Test
