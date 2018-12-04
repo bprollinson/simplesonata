@@ -28,7 +28,7 @@ public class MusicSampleTest
     }
 
     @Test
-    public void testEqualsReturnsFalseWhenSamplePointsAreNotTheSame()
+    public void testEqualsReturnsFalseWhenSamplePointsAreDifferent()
     {
         MusicSample sample = new MusicSample(new byte[] {
             1,
