@@ -12,11 +12,11 @@ public class MusicSampleNoteTest
         MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
             1,
             2
-        }, 0);
+        }, 1);
         MusicSampleNote otherSampleNote = new MusicSampleNote(new byte[] {
             1,
             2
-        }, 0);
+        }, 1);
 
         assertEquals(otherSampleNote, sampleNote);
     }
@@ -27,11 +27,26 @@ public class MusicSampleNoteTest
         MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
             1,
             2
-        }, 0);
+        }, 1);
         MusicSampleNote otherSampleNote = new MusicSampleNote(new byte[] {
             1,
             3
-        }, 0);
+        }, 1);
+
+        assertNotEquals(otherSampleNote, sampleNote);
+    }
+
+    @Test
+    public void testEqualsReturnsFalseWhenSamePointTimesAreDifferent()
+    {
+        MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
+            1,
+            2
+        }, 1);
+        MusicSampleNote otherSampleNote = new MusicSampleNote(new byte[] {
+            1,
+            2
+        }, 2);
 
         assertNotEquals(otherSampleNote, sampleNote);
     }
@@ -42,7 +57,7 @@ public class MusicSampleNoteTest
         MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
             1,
             2
-        }, 0);
+        }, 1);
 
         assertNotEquals(new Object(), sampleNote);
     }
