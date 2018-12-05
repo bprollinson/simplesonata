@@ -15,7 +15,7 @@ public class NoteSequenceSamplerTest
             new MusicSampleNote(new byte[] {
                 0,
                 0
-            })
+            }, 0)
         });
 
         assertEquals(expectedSample, sampler.sample(sequence, 1));
@@ -37,7 +37,7 @@ public class NoteSequenceSamplerTest
                 127,
                 0,
                 -127
-            })
+            }, 0)
         });
 
         assertEquals(expectedSample, sampler.sample(sequence, 4));
@@ -67,7 +67,7 @@ public class NoteSequenceSamplerTest
                 -90,
                 -127,
                 -90
-            })
+            }, 0)
         });
 
         assertEquals(expectedSample, sampler.sample(sequence, 8));
@@ -89,7 +89,7 @@ public class NoteSequenceSamplerTest
                 -90,
                 -127,
                 -90
-            })
+            }, 0)
         });
 
         assertEquals(expectedSample, sampler.sample(sequence, 4));
@@ -111,7 +111,7 @@ public class NoteSequenceSamplerTest
                 0,
                 -75,
                 -121
-            })
+            }, 0)
         });
 
         assertEquals(expectedSample, sampler.sample(sequence, 4));
@@ -133,7 +133,7 @@ public class NoteSequenceSamplerTest
                 127,
                 0,
                 -127
-            }),
+            }, 0),
             new MusicSampleNote(new byte[] {
                 0,
                 90,
@@ -143,7 +143,7 @@ public class NoteSequenceSamplerTest
                 -90,
                 -127,
                 -90
-            })
+            }, 0)
         });
 
         assertEquals(expectedSample, sampler.sample(sequence, 4));

@@ -5,10 +5,12 @@ import java.util.Arrays;
 public class MusicSampleNote
 {
     private byte[] samplePoints;
+    private int timeS;
 
-    public MusicSampleNote(byte[] samplePoints)
+    public MusicSampleNote(byte[] samplePoints, int timeS)
     {
         this.samplePoints = samplePoints;
+        this.timeS = timeS;
     }
 
     public byte[] getSamplePoints()

@@ -12,11 +12,11 @@ public class MusicSampleNoteTest
         MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
             1,
             2
-        });
+        }, 0);
         MusicSampleNote otherSampleNote = new MusicSampleNote(new byte[] {
             1,
             2
-        });
+        }, 0);
 
         assertEquals(otherSampleNote, sampleNote);
     }
@@ -27,11 +27,11 @@ public class MusicSampleNoteTest
         MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
             1,
             2
-        });
+        }, 0);
         MusicSampleNote otherSampleNote = new MusicSampleNote(new byte[] {
             1,
             3
-        });
+        }, 0);
 
         assertNotEquals(otherSampleNote, sampleNote);
     }
@@ -42,7 +42,7 @@ public class MusicSampleNoteTest
         MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
             1,
             2
-        });
+        }, 0);
 
         assertNotEquals(new Object(), sampleNote);
     }

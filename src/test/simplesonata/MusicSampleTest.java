@@ -13,13 +13,13 @@ public class MusicSampleTest
             new MusicSampleNote(new byte[] {
                 1,
                 2
-            })
+            }, 0)
         });
         MusicSample otherSample = new MusicSample(new MusicSampleNote[] {
             new MusicSampleNote(new byte[] {
                 1,
                 2
-            })
+            }, 0)
         });
 
         assertEquals(otherSample, sample);
@@ -32,21 +32,21 @@ public class MusicSampleTest
             new MusicSampleNote(new byte[] {
                 1,
                 2
-            }),
+            }, 0),
             new MusicSampleNote(new byte[] {
                 3,
                 4
-            })
+            }, 0)
         });
         MusicSample otherSample = new MusicSample(new MusicSampleNote[] {
             new MusicSampleNote(new byte[] {
                 1,
                 2
-            }),
+            }, 0),
             new MusicSampleNote(new byte[] {
                 3,
                 4
-            })
+            }, 0)
         });
 
         assertEquals(otherSample, sample);
@@ -59,13 +59,13 @@ public class MusicSampleTest
             new MusicSampleNote(new byte[] {
                 1,
                 2
-            })
+            }, 0)
         });
         MusicSample otherSample = new MusicSample(new MusicSampleNote[] {
             new MusicSampleNote(new byte[] {
                 1,
                 3
-            })
+            }, 0)
         });
 
         assertNotEquals(otherSample, sample);
@@ -78,17 +78,17 @@ public class MusicSampleTest
             new MusicSampleNote(new byte[] {
                 1,
                 2
-            }),
+            }, 0),
             new MusicSampleNote(new byte[] {
                 3,
                 4
-            })
+            }, 0)
         });
         MusicSample otherSample = new MusicSample(new MusicSampleNote[] {
             new MusicSampleNote(new byte[] {
                 1,
                 2
-            })
+            }, 0)
         });
 
         assertNotEquals(otherSample, sample);
@@ -101,7 +101,7 @@ public class MusicSampleTest
             new MusicSampleNote(new byte[] {
                 1,
                 2
-            })
+            }, 0)
         });
 
         assertNotEquals(new Object(), sample);
