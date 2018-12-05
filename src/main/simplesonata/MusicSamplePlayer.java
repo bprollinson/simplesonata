@@ -7,6 +7,9 @@ import javax.sound.sampled.SourceDataLine;
 
 public class MusicSamplePlayer
 {
+    private static final int SAMPLE_SIZE_BITS = 8;
+    private static final int NUM_CHANNELS = 1;
+
     public void play(MusicSample sample, int samplePointsPerSecond) throws LineUnavailableException
     {
         MusicSampleNote[] sampleNotes = sample.getSampleNotes();
@@ -21,7 +24,7 @@ public class MusicSamplePlayer
 
     private SourceDataLine openDataLine(int samplePointsPerSecond) throws LineUnavailableException
     {
-        AudioFormat audioFormat = new AudioFormat(samplePointsPerSecond, 8, 1, true, true);
+        AudioFormat audioFormat = new AudioFormat(samplePointsPerSecond, MusicSamplePlayer.SAMPLE_SIZE_BITS, MusicSamplePlayer.NUM_CHANNELS, true, true);
 
         SourceDataLine dataLine = AudioSystem.getSourceDataLine(audioFormat);
         dataLine.open(audioFormat, samplePointsPerSecond);
