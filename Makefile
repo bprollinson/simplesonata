@@ -7,6 +7,8 @@ program:
 	find src/main -name "*.java" > ./sources.txt
 	javac -Xlint:unchecked @sources.txt
 	rm sources.txt
+samples:
+	javac -cp src/main:src/samples src/samples/simplesonata/*.java
 test:
 	make clean
 	find src/test -name "*.java" > ./sources.txt
