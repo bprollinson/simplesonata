@@ -10,7 +10,7 @@ public class SimpleSonata
     {
         System.out.println("There");
 
-        NoteSequence noteSequence = new NoteSequence(new Note(640, 1));
+        NoteSequence noteSequence = new NoteSequence(new Note(640, 1), new Note(660, 2));
         NoteSequenceSampler sampler = new NoteSequenceSampler();
 
         MusicSample sample = sampler.sample(noteSequence, 16 * 1024);

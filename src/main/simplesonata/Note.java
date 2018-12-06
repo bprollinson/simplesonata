@@ -15,4 +15,9 @@ public class Note
     {
         return this.frequencyHz;
     }
+
+    public int getDurationInSeconds()
+    {
+        return this.durationS;
+    }
 }

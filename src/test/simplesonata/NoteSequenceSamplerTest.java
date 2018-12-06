@@ -148,4 +148,36 @@ public class NoteSequenceSamplerTest
 
         assertEquals(expectedSample, sampler.sample(sequence, 4));
     }
+
+    @Test
+    public void testSampleReturnsMultiDurationSample()
+    {
+        NoteSequenceSampler sampler = new NoteSequenceSampler();
+        NoteSequence sequence = new NoteSequence(new Note(1, 1), new Note(1, 2));
+
+        MusicSample expectedSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                0,
+                127,
+                0,
+                -127,
+                0,
+                127,
+                0,
+                -127
+            }, 1),
+            new MusicSampleNote(new byte[] {
+                0,
+                127,
+                0,
+                -127,
+                0,
+                127,
+                0,
+                -127
+            }, 2)
+        });
+
+        assertEquals(expectedSample, sampler.sample(sequence, 4));
+    }
 }

@@ -16,7 +16,7 @@ public class MusicSamplePlayer
 
         SourceDataLine dataLine = this.openDataLine(samplePointsPerSecond);
         for (int i = 0; i < sampleNotes.length; i++) {
-            this.play(dataLine, sampleNotes[i], 1000, samplePointsPerSecond);
+            this.play(dataLine, sampleNotes[i], 1000 * sampleNotes[i].getDurationInSeconds(), samplePointsPerSecond);
         }
 
         this.closeDataLine(dataLine);
