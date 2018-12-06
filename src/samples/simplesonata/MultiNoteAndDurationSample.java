@@ -2,11 +2,11 @@ package simplesonata;
 
 import javax.sound.sampled.LineUnavailableException;
 
-public class SingleNoteSample implements Sample
+public class MultiNoteAndDurationSample implements Sample
 {
     public void play() throws LineUnavailableException
     {
-        NoteSequence noteSequence = new NoteSequence(new Note(440, 1));
+        NoteSequence noteSequence = new NoteSequence(new Note(440, 1), new Note(880, 2));
         NoteSequenceSampler sampler = new NoteSequenceSampler();
 
         MusicSample sample = sampler.sample(noteSequence, 16 * 1024);
@@ -16,6 +16,6 @@ public class SingleNoteSample implements Sample
 
     public static void main(String[] args) throws LineUnavailableException
     {
-        new SingleNoteSample().play();
+        new MultiNoteAndDurationSample().play();
     }
 }
