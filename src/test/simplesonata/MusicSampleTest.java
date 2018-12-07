@@ -72,6 +72,25 @@ public class MusicSampleTest
     }
 
     @Test
+    public void testEqualsReturnsTrueForNotesWithFractionalDuration()
+    {
+        MusicSample sample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                2
+            }, 0.5)
+        });
+        MusicSample otherSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                1,
+                2
+            }, 0.5)
+        });
+
+        assertEquals(otherSample, sample);
+    }
+
+    @Test
     public void testEqualsReturnsFalseWhenNumberOfNotesIsDifferent()
     {
         MusicSample sample = new MusicSample(new MusicSampleNote[] {

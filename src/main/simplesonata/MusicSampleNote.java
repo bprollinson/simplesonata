@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class MusicSampleNote
 {
     private byte[] samplePoints;
-    private int durationS;
+    private double durationS;
 
-    public MusicSampleNote(byte[] samplePoints, int durationS)
+    public MusicSampleNote(byte[] samplePoints, double durationS)
     {
         this.samplePoints = samplePoints;
         this.durationS = durationS;
@@ -18,7 +18,7 @@ public class MusicSampleNote
         return this.samplePoints;
     }
 
-    public int getDurationInSeconds()
+    public double getDurationInSeconds()
     {
         return this.durationS;
     }

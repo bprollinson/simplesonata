@@ -3,9 +3,9 @@ package simplesonata;
 public class Note
 {
     private double frequencyHz;
-    private int durationS;
+    private double durationS;
 
-    public Note(double frequencyHz, int durationS)
+    public Note(double frequencyHz, double durationS)
     {
         this.frequencyHz = frequencyHz;
         this.durationS = durationS;
@@ -16,7 +16,7 @@ public class Note
         return this.frequencyHz;
     }
 
-    public int getDurationInSeconds()
+    public double getDurationInSeconds()
     {
         return this.durationS;
     }

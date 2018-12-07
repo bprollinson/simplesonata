@@ -180,4 +180,20 @@ public class NoteSequenceSamplerTest
 
         assertEquals(expectedSample, sampler.sample(sequence, 4));
     }
+
+    @Test
+    public void testSampleReturnsSampleWithFractionalDuration()
+    {
+        NoteSequenceSampler sampler = new NoteSequenceSampler();
+        NoteSequence sequence = new NoteSequence(new Note(1, 0.5));
+
+        MusicSample expectedSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                0,
+                0
+            }, 0.5)
+        });
+
+        assertEquals(expectedSample, sampler.sample(sequence, 1));
+    }
 }
