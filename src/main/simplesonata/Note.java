@@ -29,8 +29,9 @@ public class Note
         this.durationS = durationS;
     }
 
-    public Note(char noteLetter, int octave, double durationS)
+    public Note(String noteDescriptor, int octave, double durationS)
     {
+        char noteLetter = noteDescriptor.charAt(0);
         double exponent = octave - Note.A4_OCTAVE + Note.noteLetterOffsets.get(noteLetter) / 12d;
         this.frequencyHz = Note.A4_FREQUENCY * Math.pow(2, exponent);
         this.durationS = durationS;
