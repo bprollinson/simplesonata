@@ -6,7 +6,7 @@ public class AOctaveSample implements Sample
 {
     public void play() throws LineUnavailableException
     {
-        NoteSequence noteSequence = new NoteSequence(new Note('A', 4, 1), new Note('A', 5, 0.5), new Note('A', 3, 0.5));
+        NoteSequence noteSequence = new NoteSequence(new Note("A", 4, 1), new Note("A", 5, 0.5), new Note("A", 3, 0.5));
         NoteSequenceSampler sampler = new NoteSequenceSampler();
 
         MusicSample sample = sampler.sample(noteSequence, 16 * 1024);

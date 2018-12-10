@@ -32,7 +32,12 @@ public class Note
     public Note(String noteDescriptor, int octave, double durationS)
     {
         char noteLetter = noteDescriptor.charAt(0);
-        double exponent = octave - Note.A4_OCTAVE + Note.noteLetterOffsets.get(noteLetter) / 12d;
+        int noteLetterOffset = Note.noteLetterOffsets.get(noteLetter);
+        int accidentalOffset = this.calculateAccidentalOffset(noteDescriptor);
+        int noteOffset = noteLetterOffset + accidentalOffset;
+
+        double exponent = octave - Note.A4_OCTAVE + noteOffset / 12d;
+
         this.frequencyHz = Note.A4_FREQUENCY * Math.pow(2, exponent);
         this.durationS = durationS;
     }
@@ -45,5 +50,17 @@ public class Note
     public double getDurationInSeconds()
     {
         return this.durationS;
+    }
+
+    private int calculateAccidentalOffset(String noteDescriptor)
+    {
+        if (noteDescriptor.length() == 1)
+        {
+            return 0;
+        }
+
+        char accidental = noteDescriptor.charAt(1);
+
+        return accidental == '#' ? 1 : -1;
     }
 }
