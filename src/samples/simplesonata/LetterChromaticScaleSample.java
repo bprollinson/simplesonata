@@ -2,14 +2,24 @@ package simplesonata;
 
 import javax.sound.sampled.LineUnavailableException;
 
-public class AOctaveSample implements Sample
+public class LetterChromaticScaleSample implements Sample
 {
     public void play() throws LineUnavailableException
     {
         NoteSequence noteSequence = new NoteSequence(
-            new Note("A", 4, 1),
+            new Note("C", 5, 0.5),
+            new Note("C#", 5, 0.5),
+            new Note("D", 5, 0.5),
+            new Note("D#", 5, 0.5),
+            new Note("E", 5, 0.5),
+            new Note("F", 5, 0.5),
+            new Note("F#", 5, 0.5),
+            new Note("G", 5, 0.5),
+            new Note("G#", 5, 0.5),
             new Note("A", 5, 0.5),
-            new Note("A", 3, 0.5)
+            new Note("A#", 5, 0.5),
+            new Note("B", 5, 0.5),
+            new Note("C", 6, 0.5)
         );
         NoteSequenceSampler sampler = new NoteSequenceSampler();
 
@@ -20,6 +30,6 @@ public class AOctaveSample implements Sample
 
     public static void main(String[] args) throws LineUnavailableException
     {
-        new AOctaveSample().play();
+        new LetterChromaticScaleSample().play();
     }
 }
