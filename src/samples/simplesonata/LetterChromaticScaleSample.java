@@ -4,7 +4,7 @@ import javax.sound.sampled.LineUnavailableException;
 
 public class LetterChromaticScaleSample implements Sample
 {
-    public void play() throws LineUnavailableException
+    public void play() throws LineUnavailableException, InvalidNoteDescriptorException
     {
         NoteSequence noteSequence = new NoteSequence(
             new Note("C", 5, 0.5),
@@ -28,7 +28,7 @@ public class LetterChromaticScaleSample implements Sample
         player.play(sample, 16 * 1024);
     }
 
-    public static void main(String[] args) throws LineUnavailableException
+    public static void main(String[] args) throws LineUnavailableException, InvalidNoteDescriptorException
     {
         new LetterChromaticScaleSample().play();
     }

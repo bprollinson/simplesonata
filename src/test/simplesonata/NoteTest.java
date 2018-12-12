@@ -6,7 +6,7 @@ import org.junit.Test;
 public class NoteTest
 {
     @Test
-    public void testConstructorSetsFrequencyFromLetterAndOctaveForA4()
+    public void testConstructorSetsFrequencyFromLetterAndOctaveForA4() throws InvalidNoteDescriptorException
     {
         Note note = new Note("A", 4, 1);
 
@@ -14,7 +14,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromLetterAndHigherOctave()
+    public void testConstructorSetsFrequencyFromLetterAndHigherOctave() throws InvalidNoteDescriptorException
     {
         Note note = new Note("A", 5, 1);
 
@@ -22,7 +22,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromLetterAndLowerOctave()
+    public void testConstructorSetsFrequencyFromLetterAndLowerOctave() throws InvalidNoteDescriptorException
     {
         Note note = new Note("A", 3, 1);
 
@@ -30,7 +30,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromB()
+    public void testConstructorSetsFrequencyFromB() throws InvalidNoteDescriptorException
     {
         Note note = new Note("B", 3, 1);
 
@@ -38,7 +38,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromC()
+    public void testConstructorSetsFrequencyFromC() throws InvalidNoteDescriptorException
     {
         Note note = new Note("C", 4, 1);
 
@@ -46,7 +46,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromG()
+    public void testConstructorSetsFrequencyFromG() throws InvalidNoteDescriptorException
     {
         Note note = new Note("G", 4, 1);
 
@@ -54,7 +54,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromBInLowerOctave()
+    public void testConstructorSetsFrequencyFromBInLowerOctave() throws InvalidNoteDescriptorException
     {
         Note note = new Note("B", 2, 1);
 
@@ -62,7 +62,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromCInLowerOctave()
+    public void testConstructorSetsFrequencyFromCInLowerOctave() throws InvalidNoteDescriptorException
     {
         Note note = new Note("C", 3, 1);
 
@@ -70,7 +70,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromGInLowerOctave()
+    public void testConstructorSetsFrequencyFromGInLowerOctave() throws InvalidNoteDescriptorException
     {
         Note note = new Note("G", 3, 1);
 
@@ -78,7 +78,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromBInHigherOctave()
+    public void testConstructorSetsFrequencyFromBInHigherOctave() throws InvalidNoteDescriptorException
     {
         Note note = new Note("B", 4, 1);
 
@@ -86,7 +86,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromCInHigherOctave()
+    public void testConstructorSetsFrequencyFromCInHigherOctave() throws InvalidNoteDescriptorException
     {
         Note note = new Note("C", 5, 1);
 
@@ -94,7 +94,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromGInHigherOctave()
+    public void testConstructorSetsFrequencyFromGInHigherOctave() throws InvalidNoteDescriptorException
     {
         Note note = new Note("G", 5, 1);
 
@@ -102,7 +102,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromLetterWithSharpSymbol()
+    public void testConstructorSetsFrequencyFromLetterWithSharpSymbol() throws InvalidNoteDescriptorException
     {
         Note note = new Note("A#", 4, 1);
 
@@ -110,7 +110,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromLetterWithFlatSymbol()
+    public void testConstructorSetsFrequencyFromLetterWithFlatSymbol() throws InvalidNoteDescriptorException
     {
         Note note = new Note("Ab", 4, 1);
 
@@ -118,7 +118,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromLetterWithSharpSymbolEquivalentToOtherLetter()
+    public void testConstructorSetsFrequencyFromLetterWithSharpSymbolEquivalentToOtherLetter() throws InvalidNoteDescriptorException
     {
         Note note = new Note("B#", 4, 1);
 
@@ -126,7 +126,7 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromLetterWithFlatSymbolEquivalentToOtherLetter()
+    public void testConstructorSetsFrequencyFromLetterWithFlatSymbolEquivalentToOtherLetter() throws InvalidNoteDescriptorException
     {
         Note note = new Note("Cb", 5, 1);
 
@@ -134,10 +134,16 @@ public class NoteTest
     }
 
     @Test
-    public void testConstructorSetsFrequencyFromLetterWithAccidentalSymbolInOtherOctave()
+    public void testConstructorSetsFrequencyFromLetterWithAccidentalSymbolInOtherOctave() throws InvalidNoteDescriptorException
     {
         Note note = new Note("A#", 5, 1);
 
         assertEquals(932.33, note.getFrequencyHz(), 0.01);
+    }
+
+    @Test(expected = InvalidNoteDescriptorException.class)
+    public void testConstructorThrowsExceptionForInvalidNoteDescriptor() throws InvalidNoteDescriptorException
+    {
+        new Note("", 5, 1);
     }
 }

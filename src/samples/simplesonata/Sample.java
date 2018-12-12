@@ -4,5 +4,5 @@ import javax.sound.sampled.LineUnavailableException;
 
 public interface Sample
 {
-    public void play() throws LineUnavailableException;
+    public void play() throws LineUnavailableException, InvalidNoteDescriptorException;
 }

@@ -4,7 +4,7 @@ import javax.sound.sampled.LineUnavailableException;
 
 public class AOctaveSample implements Sample
 {
-    public void play() throws LineUnavailableException
+    public void play() throws LineUnavailableException, InvalidNoteDescriptorException
     {
         NoteSequence noteSequence = new NoteSequence(
             new Note("A", 4, 1),
@@ -18,7 +18,7 @@ public class AOctaveSample implements Sample
         player.play(sample, 16 * 1024);
     }
 
-    public static void main(String[] args) throws LineUnavailableException
+    public static void main(String[] args) throws LineUnavailableException, InvalidNoteDescriptorException
     {
         new AOctaveSample().play();
     }

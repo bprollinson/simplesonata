@@ -29,8 +29,10 @@ public class Note
         this.durationS = durationS;
     }
 
-    public Note(String noteDescriptor, int octave, double durationS)
+    public Note(String noteDescriptor, int octave, double durationS) throws InvalidNoteDescriptorException
     {
+        new NoteDescriptorValidAssertion(noteDescriptor).validate();
+
         char noteLetter = noteDescriptor.charAt(0);
         int noteLetterOffset = Note.noteLetterOffsets.get(noteLetter);
         int accidentalOffset = this.calculateAccidentalOffset(noteDescriptor);
