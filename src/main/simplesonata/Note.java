@@ -33,7 +33,7 @@ public class Note
     {
         new NoteDescriptorValidAssertion(noteDescriptor).validate();
 
-        char noteLetter = noteDescriptor.charAt(0);
+        char noteLetter = noteDescriptor.toUpperCase().charAt(0);
         int noteLetterOffset = Note.noteLetterOffsets.get(noteLetter);
         int accidentalOffset = this.calculateAccidentalOffset(noteDescriptor);
         int noteOffset = noteLetterOffset + accidentalOffset;
