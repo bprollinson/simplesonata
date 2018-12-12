@@ -2,5 +2,5 @@ package simplesonata;
 
 public interface Assertion
 {
-    public void validate();
+    public void validate() throws Exception;
 }
