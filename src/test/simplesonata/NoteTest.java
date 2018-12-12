@@ -146,4 +146,12 @@ public class NoteTest
     {
         new Note("", 5, 1);
     }
+
+    @Test
+    public void testConstructorSetsFrequenceFromLowerCaseLetter() throws InvalidNoteDescriptorException
+    {
+        Note note = new Note("a", 4, 1);
+
+        assertEquals(440, note.getFrequencyHz(), 0.01);
+    }
 }
