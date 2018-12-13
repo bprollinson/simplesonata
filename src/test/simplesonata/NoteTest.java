@@ -10,7 +10,7 @@ public class NoteTest
     {
         Note note = new Note("A", 4, 1);
 
-        assertEquals(440, note.getFrequencyHz(), 0.01);
+        assertEquals(440, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -18,7 +18,7 @@ public class NoteTest
     {
         Note note = new Note("A", 5, 1);
 
-        assertEquals(880, note.getFrequencyHz(), 0.01);
+        assertEquals(880, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class NoteTest
     {
         Note note = new Note("A", 3, 1);
 
-        assertEquals(220, note.getFrequencyHz(), 0.01);
+        assertEquals(220, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class NoteTest
     {
         Note note = new Note("B", 3, 1);
 
-        assertEquals(246.94, note.getFrequencyHz(), 0.01);
+        assertEquals(246.94, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class NoteTest
     {
         Note note = new Note("C", 4, 1);
 
-        assertEquals(261.63, note.getFrequencyHz(), 0.01);
+        assertEquals(261.63, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class NoteTest
     {
         Note note = new Note("G", 4, 1);
 
-        assertEquals(392.00, note.getFrequencyHz(), 0.01);
+        assertEquals(392.00, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class NoteTest
     {
         Note note = new Note("B", 2, 1);
 
-        assertEquals(123.47, note.getFrequencyHz(), 0.01);
+        assertEquals(123.47, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class NoteTest
     {
         Note note = new Note("C", 3, 1);
 
-        assertEquals(130.81, note.getFrequencyHz(), 0.01);
+        assertEquals(130.81, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class NoteTest
     {
         Note note = new Note("G", 3, 1);
 
-        assertEquals(196, note.getFrequencyHz(), 0.01);
+        assertEquals(196, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class NoteTest
     {
         Note note = new Note("B", 4, 1);
 
-        assertEquals(493.88, note.getFrequencyHz(), 0.01);
+        assertEquals(493.88, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -90,7 +90,7 @@ public class NoteTest
     {
         Note note = new Note("C", 5, 1);
 
-        assertEquals(523.25, note.getFrequencyHz(), 0.01);
+        assertEquals(523.25, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -98,7 +98,7 @@ public class NoteTest
     {
         Note note = new Note("G", 5, 1);
 
-        assertEquals(783.99, note.getFrequencyHz(), 0.01);
+        assertEquals(783.99, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -106,7 +106,7 @@ public class NoteTest
     {
         Note note = new Note("A#", 4, 1);
 
-        assertEquals(466.16, note.getFrequencyHz(), 0.01);
+        assertEquals(466.16, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -114,7 +114,7 @@ public class NoteTest
     {
         Note note = new Note("Ab", 4, 1);
 
-        assertEquals(415.3, note.getFrequencyHz(), 0.01);
+        assertEquals(415.3, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -122,7 +122,7 @@ public class NoteTest
     {
         Note note = new Note("B#", 4, 1);
 
-        assertEquals(523.25, note.getFrequencyHz(), 0.01);
+        assertEquals(523.25, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -130,7 +130,7 @@ public class NoteTest
     {
         Note note = new Note("Cb", 5, 1);
 
-        assertEquals(493.88, note.getFrequencyHz(), 0.01);
+        assertEquals(493.88, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test
@@ -138,7 +138,7 @@ public class NoteTest
     {
         Note note = new Note("A#", 5, 1);
 
-        assertEquals(932.33, note.getFrequencyHz(), 0.01);
+        assertEquals(932.33, note.getFrequencyInHertz(), 0.01);
     }
 
     @Test(expected = InvalidNoteDescriptorException.class)
@@ -152,6 +152,6 @@ public class NoteTest
     {
         Note note = new Note("a", 4, 1);
 
-        assertEquals(440, note.getFrequencyHz(), 0.01);
+        assertEquals(440, note.getFrequencyInHertz(), 0.01);
     }
 }

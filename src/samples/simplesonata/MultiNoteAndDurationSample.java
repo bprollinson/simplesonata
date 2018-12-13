@@ -7,6 +7,7 @@ public class MultiNoteAndDurationSample implements Sample
     public void play() throws LineUnavailableException
     {
         NoteSequence noteSequence = new NoteSequence(
+            60,
             new Note(440, 1),
             new Note(880, 2)
         );

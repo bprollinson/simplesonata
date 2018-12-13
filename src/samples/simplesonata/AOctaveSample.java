@@ -7,6 +7,7 @@ public class AOctaveSample implements Sample
     public void play() throws LineUnavailableException, InvalidNoteDescriptorException
     {
         NoteSequence noteSequence = new NoteSequence(
+            60,
             new Note("A", 4, 1),
             new Note("A", 5, 0.5),
             new Note("A", 3, 0.5)

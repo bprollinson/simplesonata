@@ -21,15 +21,15 @@ public class Note
     }
 
     private double frequencyHz;
-    private double durationS;
+    private double durationB;
 
-    public Note(double frequencyHz, double durationS)
+    public Note(double frequencyHz, double durationB)
     {
         this.frequencyHz = frequencyHz;
-        this.durationS = durationS;
+        this.durationB = durationB;
     }
 
-    public Note(String noteDescriptor, int octave, double durationS) throws InvalidNoteDescriptorException
+    public Note(String noteDescriptor, int octave, double durationB) throws InvalidNoteDescriptorException
     {
         new NoteDescriptorValidAssertion(noteDescriptor).validate();
 
@@ -41,17 +41,17 @@ public class Note
         double exponent = octave - Note.A4_OCTAVE + noteOffset / 12d;
 
         this.frequencyHz = Note.A4_FREQUENCY * Math.pow(2, exponent);
-        this.durationS = durationS;
+        this.durationB = durationB;
     }
 
-    public double getFrequencyHz()
+    public double getFrequencyInHertz()
     {
         return this.frequencyHz;
     }
 
-    public double getDurationInSeconds()
+    public double getDurationInBeats()
     {
-        return this.durationS;
+        return this.durationB;
     }
 
     private int calculateAccidentalOffset(String noteDescriptor)

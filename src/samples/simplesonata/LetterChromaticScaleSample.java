@@ -7,6 +7,7 @@ public class LetterChromaticScaleSample implements Sample
     public void play() throws LineUnavailableException, InvalidNoteDescriptorException
     {
         NoteSequence noteSequence = new NoteSequence(
+            60,
             new Note("C", 5, 0.5),
             new Note("C#", 5, 0.5),
             new Note("D", 5, 0.5),

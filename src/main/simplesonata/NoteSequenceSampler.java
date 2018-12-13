@@ -3,6 +3,7 @@ package simplesonata;
 public class NoteSequenceSampler
 {
     private static final int SAMPLE_TIME_S = 2;
+    private static final int SECONDS_PER_MINUTE = 60;
 
     public MusicSample sample(NoteSequence sequence, int samplePointsPerSecond)
     {
@@ -12,7 +13,8 @@ public class NoteSequenceSampler
         for (int i = 0; i < notes.length; i++)
         {
             byte[] samplePoints = this.calculateWaveSampleValues(notes[i], samplePointsPerSecond);
-            sampleNotes[i] = new MusicSampleNote(samplePoints, notes[i].getDurationInSeconds());
+            double durationInSeconds = notes[i].getDurationInBeats() * sequence.getTempoInBeatsPerMinute() / NoteSequenceSampler.SECONDS_PER_MINUTE;
+            sampleNotes[i] = new MusicSampleNote(samplePoints, durationInSeconds);
         }
 
         return new MusicSample(sampleNotes);
@@ -32,7 +34,7 @@ public class NoteSequenceSampler
 
     private byte calculateWaveSampleValue(Note note, int samplePointsPerSecond, int timeIndex)
     {
-        double period = samplePointsPerSecond / note.getFrequencyHz();
+        double period = samplePointsPerSecond / note.getFrequencyInHertz();
         double angle = 2.0 * Math.PI * timeIndex / period;
 
         return (byte)(Math.round(Math.sin(angle) * 127));

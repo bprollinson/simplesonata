@@ -6,7 +6,10 @@ public class SingleNoteSample implements Sample
 {
     public void play() throws LineUnavailableException
     {
-        NoteSequence noteSequence = new NoteSequence(new Note(440, 1));
+        NoteSequence noteSequence = new NoteSequence(
+            60,
+            new Note(440, 1)
+        );
         NoteSequenceSampler sampler = new NoteSequenceSampler();
 
         MusicSample sample = sampler.sample(noteSequence, 16 * 1024);
