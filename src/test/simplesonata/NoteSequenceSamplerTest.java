@@ -182,10 +182,26 @@ public class NoteSequenceSamplerTest
     }
 
     @Test
-    public void testSampleReturnsSampleWithFractionalDuration()
+    public void testSampleReturnsSampleWithFractionalDurationBasedOnNoteDuration()
     {
         NoteSequenceSampler sampler = new NoteSequenceSampler();
         NoteSequence sequence = new NoteSequence(60, new Note(1, 0.5));
+
+        MusicSample expectedSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                0,
+                0
+            }, 0.5)
+        });
+
+        assertEquals(expectedSample, sampler.sample(sequence, 1));
+    }
+
+    @Test
+    public void testSampleReturnsSampleWithFractionalDurationBasedOnTempo()
+    {
+        NoteSequenceSampler sampler = new NoteSequenceSampler();
+        NoteSequence sequence = new NoteSequence(30, new Note(1, 1));
 
         MusicSample expectedSample = new MusicSample(new MusicSampleNote[] {
             new MusicSampleNote(new byte[] {
