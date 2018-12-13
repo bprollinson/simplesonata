@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Note
 {
-    private static final double A4_FREQUENCY = 440;
+    private static final double A4_FREQUENCY_HZ = 440;
     private static final int A4_OCTAVE = 4;
 
     private static Map<Character, Integer> noteLetterOffsets;
@@ -40,7 +40,7 @@ public class Note
 
         double exponent = octave - Note.A4_OCTAVE + noteOffset / 12d;
 
-        this.frequencyHz = Note.A4_FREQUENCY * Math.pow(2, exponent);
+        this.frequencyHz = Note.A4_FREQUENCY_HZ * Math.pow(2, exponent);
         this.durationB = durationB;
     }
 

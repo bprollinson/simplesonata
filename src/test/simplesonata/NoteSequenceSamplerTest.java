@@ -212,4 +212,26 @@ public class NoteSequenceSamplerTest
 
         assertEquals(expectedSample, sampler.sample(sequence, 1));
     }
+
+    @Test
+    public void testSampleReturnsZeroBytesForRest()
+    {
+        NoteSequenceSampler sampler = new NoteSequenceSampler();
+        NoteSequence sequence = new NoteSequence(60, new Rest(1));
+
+        MusicSample expectedSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            }, 1)
+        });
+
+        assertEquals(expectedSample, sampler.sample(sequence, 4));
+    }
 }
