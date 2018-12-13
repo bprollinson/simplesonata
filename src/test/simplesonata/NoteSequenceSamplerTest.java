@@ -201,7 +201,7 @@ public class NoteSequenceSamplerTest
     public void testSampleReturnsSampleWithFractionalDurationBasedOnTempo()
     {
         NoteSequenceSampler sampler = new NoteSequenceSampler();
-        NoteSequence sequence = new NoteSequence(30, new Note(1, 1));
+        NoteSequence sequence = new NoteSequence(120, new Note(1, 1));
 
         MusicSample expectedSample = new MusicSample(new MusicSampleNote[] {
             new MusicSampleNote(new byte[] {

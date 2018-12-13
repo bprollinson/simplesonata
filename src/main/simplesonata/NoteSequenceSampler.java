@@ -13,7 +13,7 @@ public class NoteSequenceSampler
         for (int i = 0; i < notes.length; i++)
         {
             byte[] samplePoints = this.calculateWaveSampleValues(notes[i], samplePointsPerSecond);
-            double durationInSeconds = notes[i].getDurationInBeats() * sequence.getTempoInBeatsPerMinute() / NoteSequenceSampler.SECONDS_PER_MINUTE;
+            double durationInSeconds = notes[i].getDurationInBeats() * NoteSequenceSampler.SECONDS_PER_MINUTE / sequence.getTempoInBeatsPerMinute();
             sampleNotes[i] = new MusicSampleNote(samplePoints, durationInSeconds);
         }
 
