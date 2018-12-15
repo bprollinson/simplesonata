@@ -234,4 +234,36 @@ public class NoteSequenceSamplerTest
 
         assertEquals(expectedSample, sampler.sample(sequence, 4));
     }
+
+    @Test
+    public void testSampleRespectsInitialVolumeFromNoteSequence()
+    {
+        NoteSequenceSampler sampler = new NoteSequenceSampler();
+        NoteSequence sequence = new NoteSequence(60, 50, new Note(1, 1));
+
+        MusicSample expectedSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                0,
+                0
+            }, 1, 50)
+        });
+
+        assertEquals(expectedSample, sampler.sample(sequence, 1));
+    }
+
+    @Test
+    public void testSampleRespectsInitialFractionalVolumeFromNoteSequence()
+    {
+        NoteSequenceSampler sampler = new NoteSequenceSampler();
+        NoteSequence sequence = new NoteSequence(60, 45.5, new Note(1, 1));
+
+        MusicSample expectedSample = new MusicSample(new MusicSampleNote[] {
+            new MusicSampleNote(new byte[] {
+                0,
+                0
+            }, 1, 45.5)
+        });
+
+        assertEquals(expectedSample, sampler.sample(sequence, 1));
+    }
 }

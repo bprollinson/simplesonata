@@ -6,12 +6,21 @@ import java.util.List;
 
 public class NoteSequence
 {
+    private static final double DEFAULT_VOLUME = 100;
+
     private double tempoBPM;
+    private double volume;
     private Note[] notes;
 
     public NoteSequence(double tempoBPM, Note... notes)
     {
+        this(tempoBPM, NoteSequence.DEFAULT_VOLUME, notes);
+    }
+
+    public NoteSequence(double tempoBPM, double volumne, Note... notes)
+    {
         this.notes = notes;
+        this.volume = volume;
         this.tempoBPM = tempoBPM;
     }
 

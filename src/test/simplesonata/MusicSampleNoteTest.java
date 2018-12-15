@@ -52,6 +52,36 @@ public class MusicSampleNoteTest
     }
 
     @Test
+    public void testEqualsReturnsTrueWhenNonStandardVolumesAreTheSame()
+    {
+        MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
+            1,
+            2
+        }, 1, 50);
+        MusicSampleNote otherSampleNote = new MusicSampleNote(new byte[] {
+            1,
+            2
+        }, 2, 50);
+
+        assertEquals(otherSampleNote, sampleNote);
+    }
+
+    @Test
+    public void testEqualsReturnsFalseWhenNonStandardVolumesAreDifferent()
+    {
+        MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
+            1,
+            2
+        }, 1, 50);
+        MusicSampleNote otherSampleNote = new MusicSampleNote(new byte[] {
+            1,
+            2
+        }, 2, 60);
+
+        assertNotEquals(otherSampleNote, sampleNote);
+    }
+
+    @Test
     public void testEqualsReturnsFalseForObjectWithDifferentClass()
     {
         MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
