@@ -32,6 +32,11 @@ public class MusicSampleNote
         return this.durationS;
     }
 
+    public double getVolume()
+    {
+        return this.volume;
+    }
+
     public boolean equals(Object other)
     {
         if (!(other instanceof MusicSampleNote))
@@ -41,6 +46,6 @@ public class MusicSampleNote
 
         MusicSampleNote otherSampleNote = (MusicSampleNote)other;
 
-        return Arrays.equals(this.samplePoints, otherSampleNote.getSamplePoints()) && this.durationS == otherSampleNote.getDurationInSeconds();
+        return Arrays.equals(this.samplePoints, otherSampleNote.getSamplePoints()) && this.durationS == otherSampleNote.getDurationInSeconds() && this.volume == otherSampleNote.getVolume();
     }
 }

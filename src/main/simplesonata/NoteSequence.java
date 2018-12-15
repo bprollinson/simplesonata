@@ -17,7 +17,7 @@ public class NoteSequence
         this(tempoBPM, NoteSequence.DEFAULT_VOLUME, notes);
     }
 
-    public NoteSequence(double tempoBPM, double volumne, Note... notes)
+    public NoteSequence(double tempoBPM, double volume, Note... notes)
     {
         this.notes = notes;
         this.volume = volume;
@@ -27,6 +27,11 @@ public class NoteSequence
     public double getTempoInBeatsPerMinute()
     {
         return this.tempoBPM;
+    }
+
+    public double getVolume()
+    {
+        return this.volume;
     }
 
     public Note[] getNotes()
