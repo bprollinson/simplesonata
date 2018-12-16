@@ -2,6 +2,7 @@ package simplesonata;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 
@@ -33,15 +34,25 @@ public class MusicSamplePlayer
         return dataLine;
     }
 
+    private void play(SourceDataLine dataLine, MusicSampleNote sampleNote, int timeMs, int samplePointsPerSecond)
+    {
+        this.setDataLineVolumeFromNote(dataLine, sampleNote);
+
+        int bufferLength = samplePointsPerSecond * timeMs / 1000;
+        int count = dataLine.write(sampleNote.getSamplePoints(), 0, bufferLength);
+    }
+
+    private void setDataLineVolumeFromNote(SourceDataLine dataLine, MusicSampleNote sampleNote)
+    {
+        FloatControl volumeControl = (FloatControl)dataLine.getControl(FloatControl.Type.MASTER_GAIN);
+        double volumeDB = 20d * Math.log(sampleNote.getVolume() / 100d) / Math.log(10);
+
+        volumeControl.setValue((float)volumeDB);
+    }
+
     private void closeDataLine(SourceDataLine dataLine)
     {
         dataLine.drain();
         dataLine.close();
-    }
-
-    private void play(SourceDataLine dataLine, MusicSampleNote sampleNote, int timeMs, int samplePointsPerSecond)
-    {
-        int bufferLength = samplePointsPerSecond * timeMs / 1000;
-        int count = dataLine.write(sampleNote.getSamplePoints(), 0, bufferLength);
     }
 }
