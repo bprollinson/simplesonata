@@ -93,6 +93,21 @@ public class MusicSampleNoteTest
     }
 
     @Test
+    public void testEqualsReturnsTrueWhenStandardVolumeExplicitlySpecifiedInOneSample()
+    {
+        MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
+            1,
+            2
+        }, 1);
+        MusicSampleNote otherSampleNote = new MusicSampleNote(new byte[] {
+            1,
+            2
+        }, 1, 100);
+
+        assertEquals(otherSampleNote, sampleNote);
+    }
+
+    @Test
     public void testEqualsReturnsFalseForObjectWithDifferentClass()
     {
         MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
