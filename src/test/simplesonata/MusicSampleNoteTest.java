@@ -7,6 +7,17 @@ import org.junit.Test;
 public class MusicSampleNoteTest
 {
     @Test
+    public void testConstructorSetsMaximumVolumeByDefault()
+    {
+        MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
+            1,
+            2
+        }, 1);
+
+        assertEquals(100, sampleNote.getVolume(), 0.01);
+    }
+
+    @Test
     public void testEqualsReturnsTrueWhenSamplePointsAreTheSame()
     {
         MusicSampleNote sampleNote = new MusicSampleNote(new byte[] {
