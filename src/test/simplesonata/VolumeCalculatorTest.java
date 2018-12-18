@@ -55,10 +55,34 @@ public class VolumeCalculatorTest
     }
 
     @Test
-    public void testCalculateRealScaledVolumeInDecibels()
+    public void testConvertVolumeToDecibelsReturnsNegativeInfinityForVolumeOf0()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
-        throw new RuntimeException();
+        assertEquals(Double.NEGATIVE_INFINITY, calculator.convertVolumeToDecibels(0), 0.01);
+    }
+
+    @Test
+    public void testConvertVolumeToDecibalsReturnsFractionalValueForVolumeBetween0And100()
+    {
+        VolumeCalculator calculator = new VolumeCalculator();
+
+        assertEquals(-6.02, calculator.convertVolumeToDecibels(50), 0.01);
+    }
+
+    @Test
+    public void testConvertVolumeToDecibelsReturns0ForVolumeOf100()
+    {
+        VolumeCalculator calculator = new VolumeCalculator();
+
+        assertEquals(0, calculator.convertVolumeToDecibels(100), 0.01);
+    }
+
+    @Test
+    public void testConvertVolumeToDecibelsReturnsFractionalValueForVolumeGreaterThan100()
+    {
+        VolumeCalculator calculator = new VolumeCalculator();
+
+        assertEquals(3.52, calculator.convertVolumeToDecibels(150), 0.01);
     }
 }
