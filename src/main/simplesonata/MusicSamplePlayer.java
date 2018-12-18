@@ -60,7 +60,7 @@ public class MusicSamplePlayer
     private void setDataLineVolumeFromNote(SourceDataLine dataLine, MusicSampleNote sampleNote, double maxVolumeToStandardVolumeRatio)
     {
         FloatControl volumeControl = (FloatControl)dataLine.getControl(FloatControl.Type.MASTER_GAIN);
-        double volumeDB = 20d * Math.log(sampleNote.getVolume() / 100d * maxVolumeToStandardVolumeRatio) / Math.log(10d);
+        double volumeDB = this.volumeCalculator.convertVolumeToDecibels(sampleNote.getVolume() * maxVolumeToStandardVolumeRatio);
 
         volumeControl.setValue((float)volumeDB);
     }
