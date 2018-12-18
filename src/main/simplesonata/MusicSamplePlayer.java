@@ -11,6 +11,13 @@ public class MusicSamplePlayer
     private static final int SAMPLE_SIZE_BITS = 8;
     private static final int NUM_CHANNELS = 1;
 
+    private VolumeCalculator volumeCalculator;
+
+    public MusicSamplePlayer()
+    {
+        this.volumeCalculator = new VolumeCalculator();
+    }
+
     public void play(MusicSample sample, int samplePointsPerSecond) throws LineUnavailableException
     {
         MusicSampleNote[] sampleNotes = sample.getSampleNotes();
@@ -38,12 +45,8 @@ public class MusicSamplePlayer
     private double calculateMaxVolumeToStandardVolumeRatio(SourceDataLine dataLine)
     {
         FloatControl volumeControl = (FloatControl)dataLine.getControl(FloatControl.Type.MASTER_GAIN);
-        float maxVolumeDB = volumeControl.getMaximum();
-        double maxVolume = 100 * Math.pow(10.0d, maxVolumeDB / 20.0d);
-        double standardVolumeDB = 20d * Math.log(1d) / Math.log(10d);
-        double standardVolume = 100 * Math.pow(1d, standardVolumeDB / 20.0d);
 
-        return maxVolume / standardVolume;
+        return this.volumeCalculator.calculateMaxVolumeToStandardVolumeRatio(volumeControl.getMaximum());
     }
 
     private void play(SourceDataLine dataLine, MusicSampleNote sampleNote, int timeMs, int samplePointsPerSecond, double maxVolumeToStandardVolumeRatio)
