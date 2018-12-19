@@ -2,9 +2,9 @@ package simplesonata;
 
 public class VolumeCalculator
 {
-    public double calculateMaxVolumeToStandardVolumeRatio(double maxVolumeDB)
+    public double convertVolumeDecibelsToPercent(double volumeDB)
     {
-        return Math.pow(10.0d, maxVolumeDB / 20.0d);
+        return 100d * Math.pow(10.0d, volumeDB / 20.0d);
     }
 
     public double convertVolumePercentToDecibels(double volumePercent)

@@ -6,52 +6,52 @@ import org.junit.Test;
 public class VolumeCalculatorTest
 {
     @Test
-    public void testCalculateMaxVolumeToStandardVolumeRatioReturns10ForMaximumOf20()
+    public void testConvertVolumeDecibelsToPercentReturns1000ForMaximumOf20()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
-        assertEquals(10, calculator.calculateMaxVolumeToStandardVolumeRatio(20), 0.01);
+        assertEquals(1000, calculator.convertVolumeDecibelsToPercent(20), 0.01);
     }
 
     @Test
-    public void testCalculateMaxVolumeToStandardVolumeRatioReturns1ForMaximumOf0()
+    public void testConvertVolumeDecibelsToPercentReturns100ForMaximumOf0()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
-        assertEquals(1, calculator.calculateMaxVolumeToStandardVolumeRatio(0), 0.01);
+        assertEquals(100, calculator.convertVolumeDecibelsToPercent(0), 0.01);
     }
 
     @Test
-    public void testCalculateVolumeToStandardVolumeRatioReturnsFractionalRatioForMaximumLessThan0()
+    public void testConvertVolumeDecibelsToPercentReturnsFractionalRatioForMaximumLessThan0()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
-        assertEquals(0.32, calculator.calculateMaxVolumeToStandardVolumeRatio(-10), 0.01);
+        assertEquals(31.62, calculator.convertVolumeDecibelsToPercent(-10), 0.01);
     }
 
     @Test
-    public void testCalculateVolumeToStandardVolumeRatioReturnsFractionalRatioForMaximumBetween0And20()
+    public void testConvertVolumeDecibelsToPercentReturnsFractionalRatioForMaximumBetween0And20()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
-        assertEquals(3.16, calculator.calculateMaxVolumeToStandardVolumeRatio(10), 0.01);
+        assertEquals(316.23, calculator.convertVolumeDecibelsToPercent(10), 0.01);
     }
 
     @Test
-    public void testCalculateVolumeToStandardVolumeRatioReturnsFractionalRatioForMaximumGreaterThan20()
+    public void testConvertVolumeDecibelsToPercentReturnsFractionalRatioForMaximumGreaterThan20()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
-        assertEquals(31.62, calculator.calculateMaxVolumeToStandardVolumeRatio(30), 0.01);
+        assertEquals(3162.28, calculator.convertVolumeDecibelsToPercent(30), 0.01);
     }
 
     @Test
-    public void testCalculateVolumeToStandardVolumeRatioReturns2ForAppropriateMaximum()
+    public void testConvertVolumeDecibelsToPercentReturns200ForAppropriateMaximum()
     {
         VolumeCalculator calculator = new VolumeCalculator();
         double maxVolumeDB = 20 * Math.log(200 / 100) / Math.log(10);
 
-        assertEquals(2, calculator.calculateMaxVolumeToStandardVolumeRatio(maxVolumeDB), 0.01);
+        assertEquals(200, calculator.convertVolumeDecibelsToPercent(maxVolumeDB), 0.01);
     }
 
     @Test

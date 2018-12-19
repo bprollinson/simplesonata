@@ -46,7 +46,7 @@ public class MusicSamplePlayer
     {
         FloatControl volumeControl = (FloatControl)dataLine.getControl(FloatControl.Type.MASTER_GAIN);
 
-        return this.volumeCalculator.calculateMaxVolumeToStandardVolumeRatio(volumeControl.getMaximum());
+        return this.volumeCalculator.convertVolumeDecibelsToPercent(volumeControl.getMaximum()) / 100d;
     }
 
     private void play(SourceDataLine dataLine, MusicSampleNote sampleNote, int timeMs, int samplePointsPerSecond, double maxVolumeToStandardVolumeRatio)
