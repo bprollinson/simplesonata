@@ -6,7 +6,7 @@ import org.junit.Test;
 public class VolumeCalculatorTest
 {
     @Test
-    public void testConvertVolumeDecibelsToPercentReturns1000ForMaximumOf20()
+    public void testConvertVolumeDecibelsToPercentReturns1000ForVolumeOf20()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
@@ -14,7 +14,7 @@ public class VolumeCalculatorTest
     }
 
     @Test
-    public void testConvertVolumeDecibelsToPercentReturns100ForMaximumOf0()
+    public void testConvertVolumeDecibelsToPercentReturns100ForVolumeOf0()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
@@ -22,7 +22,7 @@ public class VolumeCalculatorTest
     }
 
     @Test
-    public void testConvertVolumeDecibelsToPercentReturnsFractionalRatioForMaximumLessThan0()
+    public void testConvertVolumeDecibelsToPercentReturnsFractionalValueForVolumeLessThan0()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
@@ -30,7 +30,7 @@ public class VolumeCalculatorTest
     }
 
     @Test
-    public void testConvertVolumeDecibelsToPercentReturnsFractionalRatioForMaximumBetween0And20()
+    public void testConvertVolumeDecibelsToPercentReturnsFractionalValueForVolumeBetween0And20()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
@@ -38,7 +38,7 @@ public class VolumeCalculatorTest
     }
 
     @Test
-    public void testConvertVolumeDecibelsToPercentReturnsFractionalRatioForMaximumGreaterThan20()
+    public void testConvertVolumeDecibelsToPercentReturnsFractionalValueForVolumeGreaterThan20()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
@@ -46,12 +46,20 @@ public class VolumeCalculatorTest
     }
 
     @Test
-    public void testConvertVolumeDecibelsToPercentReturns200ForAppropriateMaximum()
+    public void testConvertVolumeDecibelsToPercentReturns200()
     {
         VolumeCalculator calculator = new VolumeCalculator();
-        double maxVolumeDB = 20 * Math.log(200 / 100) / Math.log(10);
+        double volumeDB = 20 * Math.log(200 / 100) / Math.log(10);
 
-        assertEquals(200, calculator.convertVolumeDecibelsToPercent(maxVolumeDB), 0.01);
+        assertEquals(200, calculator.convertVolumeDecibelsToPercent(volumeDB), 0.01);
+    }
+
+    @Test
+    public void testConvertVolumeDecibelsToPercentHandlesFractionalValue()
+    {
+        VolumeCalculator calculator = new VolumeCalculator();
+
+        assertEquals(105.93, calculator.convertVolumeDecibelsToPercent(0.5), 0.01);
     }
 
     @Test
@@ -84,5 +92,13 @@ public class VolumeCalculatorTest
         VolumeCalculator calculator = new VolumeCalculator();
 
         assertEquals(3.52, calculator.convertVolumePercentToDecibels(150), 0.01);
+    }
+
+    @Test
+    public void testConvertVolumePercentToDecibelsHandlesFractionalValue()
+    {
+        VolumeCalculator calculator = new VolumeCalculator();
+
+        assertEquals(-46.02, calculator.convertVolumePercentToDecibels(0.5), 0.01);
     }
 }
