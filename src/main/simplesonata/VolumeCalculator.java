@@ -7,8 +7,8 @@ public class VolumeCalculator
         return Math.pow(10.0d, maxVolumeDB / 20.0d);
     }
 
-    public double convertVolumeToDecibels(double volume)
+    public double convertVolumePercentToDecibels(double volumePercent)
     {
-        return 20d * Math.log(volume / 100d) / Math.log(10d);
+        return 20d * Math.log(volumePercent / 100d) / Math.log(10d);
     }
 }

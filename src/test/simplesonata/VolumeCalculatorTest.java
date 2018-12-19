@@ -55,34 +55,34 @@ public class VolumeCalculatorTest
     }
 
     @Test
-    public void testConvertVolumeToDecibelsReturnsNegativeInfinityForVolumeOf0()
+    public void testConvertVolumePercentToDecibelsReturnsNegativeInfinityForVolumeOf0()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
-        assertEquals(Double.NEGATIVE_INFINITY, calculator.convertVolumeToDecibels(0), 0.01);
+        assertEquals(Double.NEGATIVE_INFINITY, calculator.convertVolumePercentToDecibels(0), 0.01);
     }
 
     @Test
-    public void testConvertVolumeToDecibalsReturnsFractionalValueForVolumeBetween0And100()
+    public void testConvertVolumePercentToDecibalsReturnsFractionalValueForVolumeBetween0And100()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
-        assertEquals(-6.02, calculator.convertVolumeToDecibels(50), 0.01);
+        assertEquals(-6.02, calculator.convertVolumePercentToDecibels(50), 0.01);
     }
 
     @Test
-    public void testConvertVolumeToDecibelsReturns0ForVolumeOf100()
+    public void testConvertVolumePercentToDecibelsReturns0ForVolumeOf100()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
-        assertEquals(0, calculator.convertVolumeToDecibels(100), 0.01);
+        assertEquals(0, calculator.convertVolumePercentToDecibels(100), 0.01);
     }
 
     @Test
-    public void testConvertVolumeToDecibelsReturnsFractionalValueForVolumeGreaterThan100()
+    public void testConvertVolumePercentToDecibelsReturnsFractionalValueForVolumeGreaterThan100()
     {
         VolumeCalculator calculator = new VolumeCalculator();
 
-        assertEquals(3.52, calculator.convertVolumeToDecibels(150), 0.01);
+        assertEquals(3.52, calculator.convertVolumePercentToDecibels(150), 0.01);
     }
 }
