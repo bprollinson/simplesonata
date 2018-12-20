@@ -35,8 +35,8 @@ public class NoteSequenceSampler
     private byte calculateWaveSampleValue(Note note, int samplePointsPerSecond, int timeIndex)
     {
         double period = samplePointsPerSecond / note.getFrequencyInHertz();
-        double angle = 2.0 * Math.PI * timeIndex / period;
+        double angle = 2d * Math.PI * timeIndex / period;
 
-        return (byte)(Math.round(Math.sin(angle) * 127));
+        return (byte)(Math.round(Math.sin(angle) * 127d));
     }
 }

@@ -4,7 +4,7 @@ public class VolumeCalculator
 {
     public double convertVolumeDecibelsToPercent(double volumeDB)
     {
-        return 100d * Math.pow(10.0d, volumeDB / 20.0d);
+        return 100d * Math.pow(10d, volumeDB / 20d);
     }
 
     public double convertVolumePercentToDecibels(double volumePercent)
