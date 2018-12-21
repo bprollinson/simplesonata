@@ -10,6 +10,7 @@ public class MusicSamplePlayer
 {
     private static final int SAMPLE_SIZE_BITS = 8;
     private static final int NUM_CHANNELS = 1;
+    private static final int MILLISECONDS_PER_SECOND = 1000;
 
     private VolumeCalculator volumeCalculator;
 
@@ -25,7 +26,7 @@ public class MusicSamplePlayer
         SourceDataLine dataLine = this.openDataLine(samplePointsPerSecond);
         double maxVolumeToStandardVolumeRatio = this.calculateMaxVolumeToStandardVolumeRatio(dataLine);
         for (int i = 0; i < sampleNotes.length; i++) {
-            this.play(dataLine, sampleNotes[i], (int)Math.round(1000 * sampleNotes[i].getDurationInSeconds()), samplePointsPerSecond, maxVolumeToStandardVolumeRatio);
+            this.play(dataLine, sampleNotes[i], (int)Math.round(MusicSamplePlayer.MILLISECONDS_PER_SECOND * sampleNotes[i].getDurationInSeconds()), samplePointsPerSecond, maxVolumeToStandardVolumeRatio);
         }
 
         this.closeDataLine(dataLine);
@@ -53,7 +54,7 @@ public class MusicSamplePlayer
     {
         this.setDataLineVolumeFromNote(dataLine, sampleNote, maxVolumeToStandardVolumeRatio);
 
-        int bufferLength = samplePointsPerSecond * timeMs / 1000;
+        int bufferLength = samplePointsPerSecond * timeMs / MusicSamplePlayer.MILLISECONDS_PER_SECOND;
         int count = dataLine.write(sampleNote.getSamplePoints(), 0, bufferLength);
     }
 

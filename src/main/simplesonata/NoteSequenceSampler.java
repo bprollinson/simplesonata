@@ -2,6 +2,7 @@ package simplesonata;
 
 public class NoteSequenceSampler
 {
+    private static final double MAX_WAVE_AMPLITUDE = 127;
     private static final int SAMPLE_TIME_S = 2;
     private static final int SECONDS_PER_MINUTE = 60;
 
@@ -37,6 +38,6 @@ public class NoteSequenceSampler
         double period = samplePointsPerSecond / note.getFrequencyInHertz();
         double angle = 2d * Math.PI * timeIndex / period;
 
-        return (byte)(Math.round(Math.sin(angle) * 127d));
+        return (byte)(Math.round(Math.sin(angle) * NoteSequenceSampler.MAX_WAVE_AMPLITUDE));
     }
 }
